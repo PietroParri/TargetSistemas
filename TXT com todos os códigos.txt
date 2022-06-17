@@ -1,0 +1,139 @@
+ex1-------------------------------------------------------------
+
+//MEU COMPILADOR DE C NÃO ACEITA ACENTUAÇÃO FORA DE COMENTÁRIOS
+#include <stdio.h>
+
+void main(){
+int indice=13;
+int soma=0;
+int k=0;
+
+    while (k<indice){
+        k++;
+        soma+=k;
+    }
+    printf("Soma: %d",soma);
+}
+
+
+ex2-------------------------------------------------------------
+
+//MEU COMPILADOR DE C NÃO ACEITA ACENTUAÇÃO FORA DE COMENTÁRIOS
+#include <stdio.h>
+/*Como vocês não especificaram o tamanho da sequência de Fibonacci, resolvi criar uma
+variável para o usuário decidir o tamanho da sequência (já que ela teoricamente é infinita)*/
+
+
+void main(){
+    int n,n2,auxiliar,a,b;
+    a=0;
+    b=1;
+    int boolean=0;//false
+
+    printf("Digite um numero que define o tamanho da sequencia: ");
+    scanf("%d",&n);
+    printf("Digite um numero que voce ache estar na sequencia: ");
+    scanf("%d",&n2);
+    printf("\nSequencia: \n\n");
+    printf("0\n");
+    printf("%d\n",b);
+
+    for (int i=0;i<n;i++){
+        auxiliar = a+b;
+        a = b;
+        b = auxiliar;
+
+        printf("%d\n",auxiliar);
+            if((n2==auxiliar) || (n2==0)){
+                boolean++;
+            }
+        }
+    if(boolean!=0){
+        printf("\nO numero que voce digitou pertence a sequencia de Fibonacci!");
+    }
+    else{
+        printf("\nO numero que voce digitou NAO pertence a sequencia de Fibonacci");
+    }
+}
+
+
+
+ex3-------------------------------------------------------------
+
+//MEU COMPILADOR DE C NÃO ACEITA ACENTUAÇÃO FORA DE COMENTÁRIOS
+#include <stdio.h>
+//Médias não estão exatas por razões de arredondamento do número float
+
+void main(){
+    float vetor[30]={22174.1664, 24537.6698, 26139.6134, 0.0, 0.0, 26742.6612, 0.0, 42889.2258,
+     46251.174, 11191.4722, 0.0, 0.0, 3847.4823, 373.7838, 2659.7563, 48924.2448, 18419.2614,
+      0.0, 0.0, 35240.1826, 43829.1667, 18235.6852, 4355.0662, 13327.1025, 0.0, 0.0, 25681.8318,
+       1718.1221, 13220.495, 8414.61};
+    float media;
+    int i,dias=0; //quantidade de dias do mês que o faturamento diário foi superior à media mensal
+    //21 dias desconsiderando fim de semana e feriado
+
+    for (i=0;i<30;i++){
+        media+=vetor[i];
+    }
+
+    media=media/21;
+    printf("Media do mes: %.4f",media);
+
+    for (i=0;i<30;i++){
+        if(vetor[i]>media){
+            dias++;
+        }
+    }
+    printf("\nMenor valor de faturamento ocorrido em um dia do mes: %.4f",vetor[13]);
+    printf("\nMaior valor de faturamento ocorrido em um dia do mes: %.4f",vetor[15]);
+    printf("\n\nA quantidade de dias que o faturamento diario foi superior a media mensal eh: %d\n",dias);
+}
+
+
+ex4----------------------------------------------------------------
+
+
+//MEU COMPILADOR DE C NÃO ACEITA ACENTUAÇÃO FORA DE COMENTÁRIOS
+#include <stdio.h>
+
+void main(){
+    float vetor[5]={67836.43, 36678.66, 29229.88, 27165.48, 19849.53};
+    float somatotal; //soma total do faturamento mensal
+    int i;
+    for (i=0;i<5;i++){
+        somatotal+=vetor[i];
+    }
+    printf("A soma total do faturamento mensal eh de: %.2f",somatotal);
+    printf("\n\nRepresentacao de SP foi de : %.2f%%",vetor[0]/somatotal*100);
+    printf("\nRepresentacao de RJ foi de : %.2f%%",vetor[1]/somatotal*100);
+    printf("\nRepresentacao de MG foi de : %.2f%%",vetor[2]/somatotal*100);
+    printf("\nRepresentacao de ES foi de : %.2f%%",vetor[3]/somatotal*100);
+    printf("\nRepresentacao de Outros foi de : %.2f%%\n",vetor[4]/somatotal*100);
+}
+
+
+ex5------------------------------------------------------------------
+//MEU COMPILADOR DE C NÃO ACEITA ACENTUAÇÃO FORA DE COMENTÁRIOS
+#include <stdio.h>
+#include <string.h>
+
+void main(){
+    char string[20] = "Target";
+    char stringInvertida[20];
+    int i,j=0;
+    int tam = strlen(string); //otimização
+
+    //Inverte apenas visualmente, a string em si continua a mesma
+    for (i=tam-1;i>=0;i--){
+        printf("%c",string[i]);
+    }
+
+    for(i=tam-1;i>=0;i--){
+        stringInvertida[j] = string[i];
+        j++;
+    }
+    stringInvertida[j] = '\0';
+    printf("\n\n%s\n",stringInvertida);
+
+}
